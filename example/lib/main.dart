@@ -50,13 +50,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            //
+            // THIS IS A BEGINNING of [TaggedText].
+            //
             TaggedText(
               textAlign: TextAlign.center,
+              // A tagged string.
               text: 'You have pushed one of this <b>buttons</b>\n'
                   'this many times: <v>$_counter</v>\n'
                   'also <hl>tags can <hr>crossing</hl> each</hr> other',
+              // A settings for root TextSpan.
               rootSettings: TagSettings(style: textTheme.bodyText1),
+              // A settings for each tag.
               tagsSettings: <String, TagSettings>{
+                // Tag 'b' with blueAccent color and action on tap.
                 'b': TagSettings(
                   style: textTheme.bodyText2?.apply(color: Colors.blueAccent),
                   recognizer: TapGestureRecognizer()
@@ -64,7 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       _incrementCounter();
                     },
                 ),
+                // Tag 'v' with specific theme.
                 'v': TagSettings(style: textTheme.headline6),
+                // Tags 'hl' and 'hr' crossing each other with merging its settings.
                 'hl': TagSettings(
                   style: const TextStyle(
                     backgroundColor: Colors.deepPurple,
@@ -78,6 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               },
             ),
+            //
+            // THIS IS A ENDING of [TaggedText].
+            //
           ],
         ),
       ),
