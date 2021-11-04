@@ -1,5 +1,5 @@
 name: tagged_text
-description: A TaggedText Widget.
+description: A TaggedText Widget. Allow build `RichText` with `TextSpan` by tagged text.
 version: 0.0.1
 homepage: https://github.com/EvGeniyLell/flutter_tagged_text
 
