@@ -82,6 +82,24 @@ Widget build(BuildContext context) {
           //
           // THIS IS A ENDING of [TaggedText].
           //
+          const SizedBox(height: 30),
+          // ... one more thing
+          // if you want use [TaggedText] only with different [TextStyle]s
+          // feel free to use it.
+          TaggedText.style(
+            text: 'text <a>with <b>only</a> text</b> styles',
+            rootStyle: textTheme.caption,
+            tagsStyles: const <String, TextStyle>{
+              'a': TextStyle(
+                backgroundColor: Colors.blueAccent,
+                color: Colors.yellow,
+              ),
+              'b': TextStyle(
+                color: Colors.deepOrangeAccent,
+              ),
+            },
+          )
+
         ],
       ),
     ),

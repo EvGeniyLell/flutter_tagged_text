@@ -51,7 +51,7 @@ class TaggedText extends RichText {
   /// Create [TaggedText] instance.
   factory TaggedText.style({
     required String text,
-    required Map<String, TextStyle?> tagsStyles,
+    required Map<String, TextStyle> tagsStyles,
     TextStyle? rootStyle,
     TextAlign textAlign = TextAlign.start,
     TextDirection? textDirection,
