@@ -98,8 +98,7 @@ Widget build(BuildContext context) {
                 color: Colors.deepOrangeAccent,
               ),
             },
-          )
-
+          ),
         ],
       ),
     ),
