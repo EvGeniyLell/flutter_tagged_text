@@ -65,7 +65,7 @@ Widget build(BuildContext context) {
               ),
               // Tag 'v' with specific theme.
               'v': TagSettings(style: textTheme.headline6),
-              // Tag 'hl' and 'hr' crossing each other with merge its settings.
+              // Tag 'hl' and 'hr' crossing each other with merging its settings.
               'hl': TagSettings(
                 style: const TextStyle(
                   backgroundColor: Colors.deepPurple,
