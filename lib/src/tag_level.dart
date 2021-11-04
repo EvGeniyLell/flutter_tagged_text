@@ -19,11 +19,15 @@ class TagLevel {
   /// The function increase or decrease level
   /// depends on [TagItem].
   void changeLevelBy(TagItem item) {
-    if (item is OpeningTagItem) {
-      _level += 1;
-    }
-    if (item is ClosingTagItem) {
-      _level -= 1;
+    if (item.name == tag) {
+      if (item is OpeningTagItem) {
+        _level += 1;
+      }
+      if (item is ClosingTagItem) {
+        _level -= 1;
+      }
+    } else {
+      assert(false, 'wrong tag name, expect $tag but actual ${item.name}');
     }
   }
 

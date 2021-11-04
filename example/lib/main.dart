@@ -55,23 +55,23 @@ class _MyHomePageState extends State<MyHomePage> {
               text: 'You have pushed one of this <b>buttons</b>\n'
                   'this many times: <v>$_counter</v>\n'
                   'also <hl>tags can <hr>crossing</hl> each</hr> other',
-              rootSettings: TextSpanSettings(style: textTheme.bodyText1),
-              tagsSettings: <String, TextSpanSettings>{
-                'b': TextSpanSettings(
+              rootSettings: TagSettings(style: textTheme.bodyText1),
+              tagsSettings: <String, TagSettings>{
+                'b': TagSettings(
                   style: textTheme.bodyText2?.apply(color: Colors.blueAccent),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       _incrementCounter();
                     },
                 ),
-                'v': TextSpanSettings(style: textTheme.headline6),
-                'hl': TextSpanSettings(
+                'v': TagSettings(style: textTheme.headline6),
+                'hl': TagSettings(
                   style: const TextStyle(
                     backgroundColor: Colors.deepPurple,
                     color: Colors.yellow,
                   ),
                 ),
-                'hr': TextSpanSettings(
+                'hr': TagSettings(
                   style: const TextStyle(
                     color: Colors.deepOrangeAccent,
                   ),

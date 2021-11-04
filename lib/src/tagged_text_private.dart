@@ -1,24 +1,16 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:tagged_text/tagged_text.dart';
 import 'package:tagged_text/src/tag_level.dart';
 import 'package:tagged_text/src/tagged_string.dart';
 import 'package:tagged_text/src/tag_item.dart';
-import 'package:tagged_text/src/text_span_settings.dart';
+import 'package:tagged_text/src/tag_settings.dart';
 
 /// Private extension on [TaggedText].
 extension TagTextPrivate on TaggedText {
   /// Build list tagged strings list.
   static List<TaggedString> buildTaggedStringsList(String rawString) {
-    final List<TagItem> items = <TagItem>[
-      ...OpeningTagItem.listFromRawString(rawString),
-      ...ClosingTagItem.listFromRawString(rawString),
-    ]..sort(
-        (TagItem a, TagItem b) {
-          return a.match.end.compareTo(b.match.end);
-        },
-      );
+    final List<TagItem> items = TagItem.buildListFromRawString(rawString);
 
     final List<TaggedString?> taggedStringsList = <TaggedString?>[];
 
@@ -34,11 +26,11 @@ extension TagTextPrivate on TaggedText {
             rawString,
             tagsLevels: tagsLevels,
             startIndex: startIndex,
-            endIndex: item.match.start,
+            endIndex: item.start,
           ),
         );
         tagLevel.changeLevelBy(item);
-        startIndex = item.match.end;
+        startIndex = item.end;
       }
     }
 
@@ -57,26 +49,26 @@ extension TagTextPrivate on TaggedText {
 
     final List<TaggedString> result =
         taggedStringsList.whereType<TaggedString>().toList();
-    debugPrintThrottled(result.toString());
+
     return result;
   }
 
   /// Build root [TextSpan] with children.
-  static InlineSpan buildTextSpan(
+  static TextSpan buildTextSpan(
     List<TaggedString> taggedStringsList,
-    Map<String, TextSpanSettings> mapTagsSettings, {
-    TextSpanSettings? rootSettings,
+    Map<String, TagSettings> mapTagsSettings, {
+    TagSettings? rootSettings,
   }) {
     final List<InlineSpan> result = <InlineSpan>[];
     for (final taggedString in taggedStringsList) {
-      TextSpanSettings? settings;
+      TagSettings? settings;
       for (final tag in taggedString.tags) {
-        final TextSpanSettings? tagSettings = mapTagsSettings[tag];
+        final TagSettings? tagSettings = mapTagsSettings[tag];
         if (tagSettings != null) {
           if (settings == null) {
             settings = tagSettings;
           } else {
-            settings = tagSettings.merge(settings);
+            settings = settings.merge(tagSettings);
           }
         }
       }
@@ -95,7 +87,7 @@ extension TagTextPrivate on TaggedText {
 
   /// Build [TextSpan] by settings.
   static TextSpan _buildTextSpanWithSettings(
-    TextSpanSettings? settings, {
+    TagSettings? settings, {
     String? text,
     List<InlineSpan>? children,
   }) {

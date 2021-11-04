@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-/// Class [TextSpanSettings].
+/// Class [TagSettings].
 ///
-/// Stored settings for [TextSpan]
-class TextSpanSettings {
+/// Stored settings for [TextSpan].
+class TagSettings {
   /// A style of text.
   final TextStyle? style;
 
@@ -20,7 +20,7 @@ class TextSpanSettings {
   /// A callback for on exit action.
   final void Function(PointerExitEvent)? onExit;
 
-  /// A semantics label
+  /// A semantics label.
   final String? semanticsLabel;
 
   /// A locale.
@@ -30,8 +30,8 @@ class TextSpanSettings {
   /// by character.
   final bool? spellOut;
 
-  /// Create [TextSpanSettings] instance.
-  TextSpanSettings({
+  /// Create [TagSettings] instance.
+  TagSettings({
     this.style,
     this.recognizer,
     this.mouseCursor,
@@ -42,10 +42,10 @@ class TextSpanSettings {
     this.spellOut,
   });
 
-  /// Merge current [TextSpanSettings] with other.
-  TextSpanSettings merge(TextSpanSettings? other) {
-    return TextSpanSettings(
-      style: other?.style?.merge(style),
+  /// Merge current [TagSettings] with other.
+  TagSettings merge(TagSettings? other) {
+    return TagSettings(
+      style: style?.merge(other?.style) ?? other?.style,
       recognizer: other?.recognizer ?? recognizer,
       mouseCursor: other?.mouseCursor ?? mouseCursor,
       onEnter: other?.onEnter ?? onEnter,

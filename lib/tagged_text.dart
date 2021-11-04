@@ -4,9 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:tagged_text/src/tagged_text_private.dart';
-import 'package:tagged_text/src/text_span_settings.dart';
+import 'package:tagged_text/src/tag_settings.dart';
 
-export 'package:tagged_text/src/text_span_settings.dart';
+export 'package:tagged_text/src/tag_settings.dart';
 
 /// Class [TaggedText].
 ///
@@ -16,8 +16,8 @@ class TaggedText extends RichText {
   /// Create [TaggedText] instance.
   TaggedText({
     required String text,
-    required Map<String, TextSpanSettings> tagsSettings,
-    TextSpanSettings? rootSettings,
+    required Map<String, TagSettings> tagsSettings,
+    TagSettings? rootSettings,
     TextAlign textAlign = TextAlign.start,
     TextDirection? textDirection,
     bool softWrap = true,
@@ -68,9 +68,9 @@ class TaggedText extends RichText {
     return TaggedText(
       text: text,
       tagsSettings: tagsStyles.map((String key, TextStyle? value) {
-        return MapEntry<String, TextSpanSettings>(
+        return MapEntry<String, TagSettings>(
           key,
-          TextSpanSettings(style: value),
+          TagSettings(style: value),
         );
       }),
       textAlign: textAlign,
@@ -83,7 +83,7 @@ class TaggedText extends RichText {
       strutStyle: strutStyle,
       textWidthBasis: textWidthBasis,
       textHeightBehavior: textHeightBehavior,
-      rootSettings: TextSpanSettings(style: rootStyle),
+      rootSettings: TagSettings(style: rootStyle),
       key: key,
     );
   }
