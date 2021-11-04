@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-import 'package:tagged_text/tagged_text.dart';
-import 'package:tagged_text/src/tag_level.dart';
-import 'package:tagged_text/src/tagged_string.dart';
 import 'package:tagged_text/src/tag_item.dart';
+import 'package:tagged_text/src/tag_level.dart';
 import 'package:tagged_text/src/tag_settings.dart';
+import 'package:tagged_text/src/tagged_string.dart';
+import 'package:tagged_text/tagged_text.dart';
 
 /// Private extension on [TaggedText].
 extension TagTextPrivate on TaggedText {
@@ -105,11 +104,3 @@ extension TagTextPrivate on TaggedText {
     );
   }
 }
-
-
-
-
-
-
-
-

@@ -2,9 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tagged_text/src/tag_item.dart';
 
 void main() {
-
   test('Build TagItem list from raw string', () {
-    void expectItem<T extends TagItem>(TagItem item, {
+    void expectItem<T extends TagItem>(
+      TagItem item, {
       required String tag,
       required int start,
       required int end,
@@ -26,7 +26,5 @@ void main() {
     expectItem<OpeningTagItem>(list[3], tag: 'c', start: 26, end: 29);
     expectItem<ClosingTagItem>(list[4], tag: 'b', start: 33, end: 37);
     expectItem<ClosingTagItem>(list[5], tag: 'c', start: 41, end: 45);
-
   });
-
 }

@@ -2,9 +2,8 @@ library tagged_text;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'package:tagged_text/src/tagged_text_private.dart';
 import 'package:tagged_text/src/tag_settings.dart';
+import 'package:tagged_text/src/tagged_text_private.dart';
 
 export 'package:tagged_text/src/tag_settings.dart';
 
