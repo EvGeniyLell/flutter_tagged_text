@@ -12,6 +12,7 @@ class TagLevel {
   /// if an opening tag is found, the level increases,
   /// if an closing tag is found, the level decrease,
   int _level;
+
   get level => _level;
 
   TagLevel({required this.tag, int level = 0}) : _level = level;
@@ -41,7 +42,6 @@ class TagLevel {
 ///
 /// Helps works with tags.
 extension TagLevelList on List<TagLevel> {
-
   /// get [TagLevel] from list by [tag] name
   TagLevel getByTag(String tag) {
     for (final TagLevel i in this) {
