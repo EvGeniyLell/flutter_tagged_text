@@ -15,6 +15,7 @@ class TagLevel {
 
   get level => _level;
 
+  /// Create [TagLevel] instance.
   TagLevel({required this.tag, int level = 0}) : _level = level;
 
   /// The function increase or decrease level
